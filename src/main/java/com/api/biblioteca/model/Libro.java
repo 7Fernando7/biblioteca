@@ -1,7 +1,8 @@
 package com.api.biblioteca.model;
 
+import com.api.biblioteca.dto.AutorDTO;
+import com.api.biblioteca.dto.LibroDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "libros")
@@ -27,4 +27,15 @@ public class Libro {
     @ManyToOne
     private Autor autor;
 
+    public Libro(LibroDTO libroDTO) {
+        this.id = libroDTO.getId();
+        this.isbn = libroDTO.getIsbn();
+        this.nombre = libroDTO.getNombre();
+        this.editorial = libroDTO.getEditorial();
+        this.genero = libroDTO.getGenero();
+        this.numeroPaginas = libroDTO.getNumeroPaginas();
+        this.precio = libroDTO.getPrecio();
+        this.fechaEdiicion = libroDTO.getFechaEdiicion();
+        this.autor = new Autor(libroDTO.getAutorDTO());
+    }
 }

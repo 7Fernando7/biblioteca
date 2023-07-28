@@ -1,5 +1,6 @@
 package com.api.biblioteca.model;
 
+import com.api.biblioteca.dto.AutorDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +18,13 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombres;
-    private String Apellidos;
+    private String apellidos;
     private String telefono;
-    @OneToMany(mappedBy = "autor")
-    List<Libro> libros;
+
+    public Autor(AutorDTO autorDTO) {
+        this.id = autorDTO.getId();
+        this.nombres = autorDTO.getNombres();
+        this.apellidos = autorDTO.getApellidos();
+        this.telefono = autorDTO.getTelefono();
+    }
 }

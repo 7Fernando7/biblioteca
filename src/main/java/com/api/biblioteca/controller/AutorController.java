@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/biblioteca")
+@RequestMapping("/api/v1/biblioteca/autores")
 public class AutorController {
 
     @Autowired
@@ -43,6 +43,5 @@ public class AutorController {
         }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
     }
 }

@@ -22,19 +22,19 @@ public class LibroDTO {
     private int numeroPaginas;
     private BigDecimal precio;
     private LocalDate fechaEdiicion;
-
     private AutorDTO autorDTO;
+    private Integer idAutor;
+
 
     public LibroDTO(Libro libro) {
-        this.id = libro.getId();
-        this.isbn = libro.getIsbn();
-        this.nombre = libro.getNombre();
-        this.editorial = libro.getEditorial();
-        this.genero = libro.getGenero();
-        this.numeroPaginas = libro.getNumeroPaginas();
-        this.precio = libro.getPrecio();
-        this.fechaEdiicion = libro.getFechaEdiicion();
-        this.autorDTO = new AutorDTO(libro.getAutor());
+        this.id = id;
+        this.isbn = isbn;
+        this.nombre = nombre;
+        this.editorial = editorial;
+        this.genero = genero;
+        this.numeroPaginas = numeroPaginas;
+        this.precio = precio;
+        this.fechaEdiicion = fechaEdiicion;
+        this.autorDTO = autorDTO;
     }
-
 }

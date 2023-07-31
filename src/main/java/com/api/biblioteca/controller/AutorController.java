@@ -25,4 +25,24 @@ public class AutorController {
     public ResponseEntity<List<AutorDTO>> findAll() {
         return new ResponseEntity<>(autorService.findAll(), HttpStatus.OK);
     }
+
+    @GetMapping("/buscarPorId/{id}")
+    public ResponseEntity<AutorDTO> findById(@PathVariable Integer id){
+        try{
+            return new ResponseEntity<>(autorService.findById(id), HttpStatus.OK);
+        }catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/deletarPorId/{id}")
+    public ResponseEntity<HttpStatus> deleteById(@PathVariable Integer id) {
+        try{
+            autorService.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
 }
